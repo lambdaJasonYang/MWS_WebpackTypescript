@@ -4,10 +4,12 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'src/index.js'),
+    entry: {
+        bleh: path.resolve(__dirname, 'src/index.js'), //"main" key can be anything like "bundle"
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].js' //[name] takes up the `bundle` key string
     },
     module: {
         rules: [{

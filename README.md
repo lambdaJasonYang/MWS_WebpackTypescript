@@ -1,8 +1,6 @@
-Changes from vanilla webpack branch
+Changes from 1webpackconfig branch
 
-* Added webpack.config.js
-* In package.json: `"build": "webpack --mode production"` --> `"build": "webpack"` 
-* Added scss styles *.scss
+* In this branch we are linking the input and output names  in the webpack config.
 
 # MWS - Webpack, Typescript with Config
 
@@ -109,6 +107,11 @@ npm install --save-dev style-loader css-loader sass-loader
 
 # webpack.config.js
 
+
+Below `main: path.resolve(...,` can be `bleh: path.resolve(...` and the output would be bleh.js.  
+WARNING: When you change names, you have to manually go to your `dist/index.html` and load the correct js file.  
+WARNING: Webpack doesnt automatically clean your dist file, so you may accidentally be loading old webpack js outputs.  
+
 ```js
 const path = require('path');
 
@@ -116,10 +119,12 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'src/index.js'),
+   entry: {
+        main: path.resolve(__dirname, 'src/index.js'), //"main" key can be anything like "bundle"
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].js' //[name] takes up the `bundle` key string
     },
     module: {
         rules: [{
@@ -128,6 +133,16 @@ module.exports = {
         }]
     }
 }
+```
+
+the Old syntax used 
+
+```js
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js'
+    },
 ```
 
 
