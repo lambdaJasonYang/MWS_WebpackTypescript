@@ -1,6 +1,7 @@
 import Graph from 'graphology';
 import Sigma from 'sigma';
 //with node_modules we dont need to write out the path, just the name of the package
+import './styles/main.scss';
 import hello from './mystuff';
 //Notice our own js code(not from node_modules) uses relative path and we can omit the `.js` 
 //Notice even though the function name is `sayhello` from `export default sayhello;` in `mystuff.js`

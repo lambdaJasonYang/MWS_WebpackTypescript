@@ -1,4 +1,10 @@
-# MWS - Webpack, Typescript
+Changes from vanilla webpack branch
+
+* Added webpack.config.js
+* In package.json: `"build": "webpack --mode production"` --> `"build": "webpack"` 
+* Added scss styles *.scss
+
+# MWS - Webpack, Typescript with Config
 
 This is a Minimal Working Sample of webpack, typescript, and external node_modules:  
 
@@ -13,6 +19,8 @@ We NEED to install webpack to use npm installed external node_modules on the bro
   * dist/
     * index.html
   * src/
+    * styles/
+      * style.scss
     * index.ts
     * mystuff.ts
 <!--  -->
@@ -81,9 +89,47 @@ package.json
 ...
   "scripts": {
     "tsc": "tsc",
-    "build": "webpack --mode production",
+    "build": "webpack",
   },
 ```
+
+# Styles
+
+
+```bash
+npm install --save-dev sass
+```
+
+In non-webpack projects, we can get away with just installing sass but  
+with webpack we need the loaders as well which we will link in the `webpack.config.js`
+
+```bash
+npm install --save-dev style-loader css-loader sass-loader
+```
+
+# webpack.config.js
+
+```js
+const path = require('path');
+
+//commonJS syntax
+
+module.exports = {
+    mode: 'development',
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js'
+    },
+    module: {
+        rules: [{
+            test: /\.s[ac]ss$/i, //regex to detect sass file
+            use: ['style-loader','css-loader','sass-loader']
+        }]
+    }
+}
+```
+
 
 
 # To build
