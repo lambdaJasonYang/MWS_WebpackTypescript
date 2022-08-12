@@ -1,4 +1,5 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 //commonJS syntax
 
@@ -9,12 +10,20 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js' //[name] takes up the `bundle` key string
+        filename: '[name].js', //[name] takes up the `bundle` key string
+        clean: true,
     },
     module: {
         rules: [{
             test: /\.s[ac]ss$/i, //regex to detect sass file
             use: ['style-loader','css-loader','sass-loader']
         }]
-    }
+    },
+    plugins : [
+        new HTMLWebpackPlugin({
+            title: "Webpack App",
+            filename: "index.html",
+            template: "src/template.html" //you can omit this but index.html can't be customized to your liking
+        })
+    ]
 }
