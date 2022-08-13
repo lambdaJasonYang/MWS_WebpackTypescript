@@ -6,9 +6,18 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "moduleResolution": "node",
+      "sourceMap": true,
       "forceConsistentCasingInFileNames": true,
-      "strictPropertyInitialization": false
+      "strictPropertyInitialization": false,
+
+      
     },
+    "exclude": ["node_modules"],
+    "include" : ["src"],
+    "files": [
+      "custom.d.ts"
+      ],
     "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Recommended"
+    "display": "Recommended",
+    
   }
