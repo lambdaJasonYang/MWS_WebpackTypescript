@@ -1,0 +1,17 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: copy dist/ to doc/ for ghpages
+      run: |
+           rm -rf doc
+           cp -r dist doc
