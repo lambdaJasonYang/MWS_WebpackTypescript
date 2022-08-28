@@ -6,7 +6,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        bleh: path.resolve(__dirname, 'src/index.js'), //"main" key can be anything like "bundle"
+        bleh: path.resolve(__dirname, 'src/index.ts'), //"main" key can be anything like "bundle"
+        
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -14,6 +15,7 @@ module.exports = {
         clean: true,
         assetModuleFilename: '[name][ext]'
     },
+    
     module: {
         rules: [
             {
@@ -58,7 +60,7 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
     },
-    devtool: 'source-map', 
+    devtool: "inline-source-map",
     //the compiled website is obfusticated JS, and errors will only show the compiled JS
     //source-map lets you know where in your source is your error
 }

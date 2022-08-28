@@ -52,25 +52,6 @@ module.exports = function extend(array, values) {
 
 /***/ }),
 
-/***/ "./src/mystuff.js":
-/*!************************!*\
-  !*** ./src/mystuff.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var sayhello = function sayhello(mystr) {
-  return "".concat(mystr, " hello!");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sayhello);
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
@@ -6213,6 +6194,25 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/mystuff.ts":
+/*!************************!*\
+  !*** ./src/mystuff.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const sayhello = (mystr) => {
+    return `${mystr} hello!`;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sayhello);
+
+
+/***/ }),
+
 /***/ "./src/assets/smiley.svg":
 /*!*******************************!*\
   !*** ./src/assets/smiley.svg ***!
@@ -6343,7 +6343,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sigma__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sigma__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _assets_smiley_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/smiley.svg */ "./src/assets/smiley.svg");
-/* harmony import */ var _mystuff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mystuff */ "./src/mystuff.js");
+/* harmony import */ var _mystuff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mystuff */ "./src/mystuff.ts");
 
  //with node_modules we dont need to write out the path, just the name of the package
 
@@ -6356,18 +6356,23 @@ __webpack_require__.r(__webpack_exports__);
 document.querySelector("h1").innerText = (0,_mystuff__WEBPACK_IMPORTED_MODULE_4__["default"])("Bob");
 var somePicHTML = document.querySelector("#somePic");
 somePicHTML.src = _assets_smiley_svg__WEBPACK_IMPORTED_MODULE_3__;
+
+var randNum = function randNum() {
+  return Math.floor(Math.random() * (10 - 0 + 1));
+};
+
 var graph = new (graphology__WEBPACK_IMPORTED_MODULE_0___default())();
 graph.addNode("Home", {
-  x: 0,
-  y: 0,
+  x: randNum(),
+  y: randNum(),
   size: 5,
   label: "Home",
   color: "blue",
   URL: "/#"
 });
 graph.addNode("Programming", {
-  x: 1,
-  y: -1,
+  x: randNum(),
+  y: randNum(),
   size: 5,
   label: "Prog",
   color: "red",
@@ -6383,4 +6388,4 @@ var renderer = new (sigma__WEBPACK_IMPORTED_MODULE_1___default())(graph, contain
 
 /******/ })()
 ;
-//# sourceMappingURL=bleh437bae4f7255aa1d3773.js.map
+//# sourceMappingURL=bleh2e6ba7b468ce873c5a24.js.map

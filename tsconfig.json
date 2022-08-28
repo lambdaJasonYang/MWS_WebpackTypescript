@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-      "target": "ES2015",
-      "module": "es2022",
+      "target": "es5",
+      "module": "es6",
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
@@ -9,6 +9,7 @@
       "sourceMap": true,
       "forceConsistentCasingInFileNames": true,
       "strictPropertyInitialization": false,
+      
 
       
     },

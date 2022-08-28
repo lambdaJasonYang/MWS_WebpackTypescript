@@ -18,10 +18,14 @@ document.querySelector("h1")!.innerText = hello("Bob");
 const somePicHTML:HTMLImageElement = document.querySelector("#somePic")!
 somePicHTML.src = Fig3;
 
+const randNum = () => {
+  return Math.floor(Math.random() * (10-0+1))
+}
+
 const graph = new Graph();
 
-graph.addNode("Home", { x: 0, y: 0, size: 5, label: "Home", color: "blue",URL : "/#" });
-graph.addNode("Programming", { x: 1, y: -1, size: 5, label: "Prog", color: "red", URL: "/tags/prog.html" });
+graph.addNode("Home", { x: randNum(), y: randNum(), size: 5, label: "HomedAd", color: "purple",URL : "/#" });
+graph.addNode("Programming", { x: randNum(), y: randNum(), size: 5, label: "Prog", color: "red", URL: "/tags/prog.html" });
 graph.addEdge("Home","Programming");
 
 const container : (HTMLElement | null) = document.getElementById("sigma-container");
