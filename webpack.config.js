@@ -15,7 +15,9 @@ module.exports = {
         clean: true,
         assetModuleFilename: '[name][ext]'
     },
-    
+    resolve: {
+        extensions: [".ts",".js",'...'],
+      },
     module: {
         rules: [
             {
